@@ -36,6 +36,12 @@ javascript-dev: k-vim
 	npm install -g jslint
 	npm install jshint -g
 
+java-jre:
+	$(sys_install) default-jre
+
+lein:
+	mkdir ~/bin/;wget -O ~/bin/lein https://raw.github.com/technomancy/leiningen/stable/bin/lein && chmod +x ~/bin/lein && ~/bin/lein
+
 mysql:
 	$(sys_install) mysql-server mysql-client
 
