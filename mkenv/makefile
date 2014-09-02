@@ -24,9 +24,7 @@ python:
 
 python-dev: python k-vim
 	$(pip) pyflakes pylint pep8 pytest ipython virtualenv
-	cd k-vim/
-	install.sh
-	cd ../
+	sh -x k-vim/install.sh
 
 javascript-dev: k-vim
 	$(sys_install) nodejs
