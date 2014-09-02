@@ -4,6 +4,10 @@ pip = pip install -i http://pypi.douban.com/simple
 about:
 	echo "LYC"
 
+recommend: system git k-vim python python-dev ssh mysql
+	rm -rf k-vim
+	echo "Enjoy!"
+
 system:
 	$(sys_install) npm
 	$(sys_install) lrzsz
@@ -20,6 +24,7 @@ k-vim: git system
 python:
 	$(sys_install) python
 	wget https://bootstrap.pypa.io/ez_setup.py -O - | python
+	rm setuptools*.zip
 	easy_install pip
 
 python-dev: python k-vim
