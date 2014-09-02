@@ -35,3 +35,7 @@ javascript-dev: k-vim
 
 mysql:
 	$(sys_install) mysql-server mysql-client
+
+ssh: system
+	$(sys_install) ssh
+	/etc/init.d/ssh restart
