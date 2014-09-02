@@ -1,5 +1,5 @@
-sys_install = "apt-get -y install"
-pip = "pip install -i http://pypi.douban.com/simple"
+sys_install = apt-get -y install
+pip = pip install -i http://pypi.douban.com/simple
 
 about:
 	echo "LYC"
