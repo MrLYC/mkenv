@@ -2,11 +2,11 @@ sys_install = apt-get -y install
 pip = pip install -i http://pypi.douban.com/simple
 
 about:
-	echo "LYC"
+	@echo "LYC"
 
 recommend: system git k-vim python python-dev ssh mysql
 	rm -rf k-vim
-	echo "Enjoy!"
+	@echo "Enjoy!"
 
 system:
 	$(sys_install) npm
