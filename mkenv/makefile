@@ -5,8 +5,14 @@ about:
 	@echo "LYC"
 
 recommend: system git k-vim python python-dev ssh mysql
-	rm -rf k-vim
 	@echo "Enjoy!"
+
+run:
+	@mkdir .temp-floder
+	@cp makefile .temp-floder/
+
+	cd .temp-floder && make recommend || true
+	@rm -rf .temp-floder
 
 system:
 	$(sys_install) npm
