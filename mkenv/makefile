@@ -17,7 +17,7 @@ git:
 	$(sys_install) git
 
 k-vim: git system
-	git clone https://github.com/wklken/k-vim.git
+	git clone https://github.com/wklken/k-vim.git || true
 	$(sys_install) ctags
 	$(sys_install) build-essential cmake python-dev
 
