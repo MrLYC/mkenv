@@ -54,3 +54,9 @@ mysql:
 ssh: system
 	$(sys_install) ssh
 	/etc/init.d/ssh restart
+
+redis:
+	wget http://download.redis.io/releases/redis-2.8.14.tar.gz
+	tar xzf redis-2.8.14.tar.gz
+	rm redis-2.8.14.tar.gz
+	cd redis-2.8.14 && make
