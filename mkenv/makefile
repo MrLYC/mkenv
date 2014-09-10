@@ -34,7 +34,7 @@ python:
 	easy_install pip
 
 python-dev: python k-vim
-	$(pip) pyflakes pylint pep8 pytest ipython virtualenv
+	$(pip) -r requirements-dev.txt
 	sh -x k-vim/install.sh
 
 javascript-dev: k-vim

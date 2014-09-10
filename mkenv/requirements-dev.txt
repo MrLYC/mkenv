@@ -1,0 +1,6 @@
+pyflakes
+pylint
+pep8
+pytest
+ipython
+virtualenv
