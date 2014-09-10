@@ -59,4 +59,6 @@ redis:
 	wget http://download.redis.io/releases/redis-2.8.14.tar.gz
 	tar xzf redis-2.8.14.tar.gz
 	rm redis-2.8.14.tar.gz
-	cd redis-2.8.14 && make
+	cd redis-2.8.14 && make && cp redis.conf /etc/
+	cd redis-2.8.14/src && cp redis-benchmark redis-cli redis-server /usr/bin/
+	redis-server /etc/redis.conf
