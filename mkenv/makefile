@@ -4,7 +4,7 @@ pip = pip install -i http://pypi.douban.com/simple
 about:
 	@echo "LYC"
 
-recommend: system git k-vim python python-dev ssh mysql
+recommend: system git-flow k-vim python python-dev ssh
 	@echo "Enjoy!"
 
 run:
@@ -21,6 +21,9 @@ system:
 
 git:
 	$(sys_install) git
+
+git-flow:
+	$(sys_install) git-flow
 
 k-vim: git system
 	git clone https://github.com/wklken/k-vim.git || true
