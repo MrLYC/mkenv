@@ -7,6 +7,9 @@ about:
 recommend: system git-flow k-vim python python-dev ssh
 	@echo "Enjoy!"
 
+usr-bin:
+	[ -e "~/bin/" ] || mkdir "~/bin/"
+
 run:
 	@mkdir .temp-floder
 	@cp makefile .temp-floder/
@@ -48,8 +51,8 @@ javascript-dev: k-vim
 java-jre:
 	$(sys_install) default-jre
 
-lein:
-	mkdir ~/bin/;wget -O ~/bin/lein https://raw.github.com/technomancy/leiningen/stable/bin/lein && chmod +x ~/bin/lein && ~/bin/lein
+lein: usr-bin
+	wget -O ~/bin/lein https://raw.github.com/technomancy/leiningen/stable/bin/lein && chmod +x ~/bin/lein && ~/bin/lein
 
 mysql:
 	$(sys_install) mysql-server mysql-client
@@ -65,3 +68,7 @@ redis:
 	rm redis-2.8.14.tar.gz
 	cd redis-2.8.14 && make && cp redis.conf /etc/
 	cd redis-2.8.14/src && cp redis-benchmark redis-cli redis-server /usr/bin/
+
+clr: usr-bin
+	echo printf \"\\ec\" > ~/bin/clr && chmod 777 ~/bin/clr
+	
