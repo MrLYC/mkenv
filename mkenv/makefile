@@ -53,6 +53,7 @@ lein:
 
 mysql:
 	$(sys_install) mysql-server mysql-client
+	$(sys_install) libmysqld-dev
 
 ssh: system
 	$(sys_install) ssh
