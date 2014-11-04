@@ -34,7 +34,7 @@ k-vim: git system
 	$(sys_install) build-essential cmake python-dev
 
 python:
-	$(sys_install) python
+	$(sys_install) python-dev
 	wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 	rm setuptools*.zip
 	easy_install pip
@@ -71,7 +71,7 @@ redis:
 
 clr: usr-bin
 	echo printf \"\\ec\" > ~/bin/clr && chmod 777 ~/bin/clr
-	
+
 hide-sysui:
 	sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_DEFAULT="text"/g' /etc/default/grub
 	update-grub
