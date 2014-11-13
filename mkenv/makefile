@@ -13,11 +13,19 @@ usr-bin:
 run:
 	@mkdir .temp-floder
 	@cp makefile .temp-floder/
+	@cp requirements-dev.txt .temp-floder/
 
 	cd .temp-floder && make recommend || true
 	@rm -rf .temp-floder
 
-system:
+source-list:
+	cp /etc/apt/sources.list ./sources.list.old
+	cat ./sources.list >> /etc/apt/sources.list
+
+update-source:
+	apt-get update
+
+system: source-list update-source
 	$(sys_install) npm
 	$(sys_install) lrzsz
 	$(sys_install) vim
