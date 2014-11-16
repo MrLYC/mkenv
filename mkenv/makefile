@@ -22,10 +22,13 @@ source-list:
 	cp /etc/apt/sources.list ./sources.list.old
 	cat ./sources.list >> /etc/apt/sources.list
 
-update-source:
+add-apt-repository:
+	add-apt-repository ppa:fcwu-tw/ppa
+
+apt-update: source-list
 	apt-get update
 
-system: source-list update-source
+system: apt-update
 	$(sys_install) npm
 	$(sys_install) lrzsz
 	$(sys_install) vim
@@ -83,3 +86,7 @@ clr: usr-bin
 hide-sysui:
 	sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_DEFAULT="text"/g' /etc/default/grub
 	update-grub
+
+compile-YCM:
+	cd ~/.vim/bundle/YouCompleteMe
+	./install.sh
