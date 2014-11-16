@@ -37,9 +37,10 @@ git-flow:
 
 git-config:
 	git config --global user.name lyc
-	git config --global user.emali saber000@vip.qq.com
+	git config --global user.email saber000@vip.qq.com
 	git config --global core.editor vim
 	git config --global merge.tool vimdiff
+	git config --global color.ui true
 
 k-vim: git system
 	git clone https://github.com/wklken/k-vim.git || true
