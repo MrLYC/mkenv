@@ -10,13 +10,9 @@ recommend: system git-flow k-vim python python-dev ssh
 usr-bin:
 	[ -e "~/bin/" ] || mkdir "~/bin/"
 
-run:
-	@mkdir .temp-floder
-	@cp makefile .temp-floder/
-	@cp requirements-dev.txt .temp-floder/
-
-	cd .temp-floder && make recommend || true
-	@rm -rf .temp-floder
+clean:
+	rm ./* -rf
+	git checkout -- .
 
 source-list:
 	cp /etc/apt/sources.list ./sources.list.old
@@ -25,7 +21,7 @@ source-list:
 add-apt-repository:
 	add-apt-repository ppa:fcwu-tw/ppa
 
-apt-update: source-list
+apt-update: source-list add-apt-repository
 	apt-get update
 
 system: apt-update
@@ -38,6 +34,12 @@ git:
 
 git-flow:
 	$(sys_install) git-flow
+
+git-config:
+	git config --global user.name lyc
+	git config --global user.emali saber000@vip.qq.com
+	git config --global core.editor vim
+	git config --global merge.tool vimdiff
 
 k-vim: git system
 	git clone https://github.com/wklken/k-vim.git || true
@@ -88,5 +90,4 @@ hide-sysui:
 	update-grub
 
 compile-YCM:
-	cd ~/.vim/bundle/YouCompleteMe
-	./install.sh
+	cd ~/.vim/bundle/YouCompleteMe && ./install.sh
