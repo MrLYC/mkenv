@@ -92,3 +92,14 @@ hide-sysui:
 
 compile-YCM:
 	cd ~/.vim/bundle/YouCompleteMe && ./install.sh
+
+stackless:
+	apt-get install libreadline-dev
+	apt-get build-dep python2.7
+	wget http://www.stackless.com/binaries/stackless-272-export.tar.bz2 -O stackless.tar.bz2
+	bunzip2 stackless.tar.bz2
+	tar xf stackless.tar
+	cd stackless-272-export/ && ./configure --prefix=/opt/stackless --enable-unicode=ucs4 && make && make install
+	ln -s /usr/lib/python2.7/dist-packages/ /opt/stackless/lib/python2.7/site-packages
+	ln -s /usr/local/lib/python2.7/dist-packages/ /opt/stackless/lib/python2.7/dist-packages
+	ln -s  /opt/stackless/bin/python /usr/bin/stackless
