@@ -1,5 +1,6 @@
 sys_install = apt-get -y install
 pip = pip install -i http://pypi.douban.com/simple
+k_vim = /opt/k-vim
 
 about:
 	@echo "LYC"
@@ -16,7 +17,7 @@ clean:
 
 source-list:
 	cp /etc/apt/sources.list ./sources.list.old
-	cat ./sources.list >> /etc/apt/sources.list
+	./add_source_list.py
 
 add-apt-repository:
 	add-apt-repository ppa:fcwu-tw/ppa
@@ -43,7 +44,7 @@ git-config:
 	git config --global color.ui true
 
 k-vim: git system
-	git clone https://github.com/wklken/k-vim.git || true
+	[ -e $(k_vim) ] || git clone https://github.com/wklken/k-vim.git $(k_vim)
 	$(sys_install) ctags
 	$(sys_install) build-essential cmake python-dev
 
@@ -55,7 +56,7 @@ python:
 
 python-dev: python k-vim
 	$(pip) -r requirements-dev.txt
-	sh -x k-vim/install.sh
+	sh -x $(k_vim)/install.sh
 
 javascript-dev: k-vim
 	$(sys_install) nodejs
