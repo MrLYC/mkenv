@@ -15,7 +15,7 @@ deb http://mirrors.163.com/ubuntu/ precise-updates multiverse
 deb-src http://mirrors.163.com/ubuntu/ precise-updates multiverse
 deb http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
 deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
-""".split("\n"))
+""".split("\n") if l)
 
 source_list_path = "/etc/apt/sources.list"
 
