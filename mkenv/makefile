@@ -20,7 +20,7 @@ source-list:
 	./add_source_list.py
 
 add-apt-repository:
-	add-apt-repository ppa:fcwu-tw/ppa
+	add-apt-repository ppa:fcwu-tw/ppa -y
 
 apt-update: source-list add-apt-repository
 	apt-get update
