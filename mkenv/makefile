@@ -50,7 +50,7 @@ k-vim: git system
 
 python:
 	$(sys_install) python-dev
-	wget https://bootstrap.pypa.io/ez_setup.py -O - | python
+	[ -e setuptools.zip ] || wget https://bootstrap.pypa.io/ez_setup.py -O setuptools.zip | python
 	rm setuptools*.zip
 	easy_install pip
 
@@ -78,7 +78,7 @@ ssh: system
 	/etc/init.d/ssh restart
 
 redis:
-	wget http://download.redis.io/releases/redis-2.8.14.tar.gz
+	[ -e redis-2.8.14.tar.gz ] || wget http://download.redis.io/releases/redis-2.8.14.tar.gz
 	tar xzf redis-2.8.14.tar.gz
 	rm redis-2.8.14.tar.gz
 	cd redis-2.8.14 && make && cp redis.conf /etc/
@@ -97,7 +97,7 @@ compile-YCM:
 stackless:
 	$(sys_install) install libreadline-dev
 	$(sys_install) build-dep python2.7
-	wget http://www.stackless.com/binaries/stackless-272-export.tar.bz2 -O stackless.tar.bz2
+	[ -e stackless.tar.bz2 ] || wget http://www.stackless.com/binaries/stackless-272-export.tar.bz2 -O stackless.tar.bz2
 	bunzip2 stackless.tar.bz2
 	tar xf stackless.tar
 	cd stackless-272-export/ && ./configure --prefix=/opt/stackless --enable-unicode=ucs4 && make && make install
