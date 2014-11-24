@@ -20,9 +20,10 @@ source-list:
 	./add_source_list.py
 
 add-apt-repository:
+	which add-apt-repository || $(sys_install) python-software-properties software-properties-common
 	add-apt-repository ppa:fcwu-tw/ppa -y
 
-apt-update: source-list add-apt-repository
+apt-update: source-list
 	apt-get update
 
 system: apt-update
