@@ -106,3 +106,7 @@ stackless:
 q-text: usr-bin
 	git clone https://github.com/harelba/q.git
 	cp q/bin/q ~/bin/
+
+lxml: python
+	$(sys_install) libxml2-dev libxslt1-dev
+	$(pip) lxml
