@@ -9,7 +9,7 @@ recommend: system git-flow k-vim python python-dev ssh
 	@echo "Enjoy!"
 
 usr-bin:
-	[ -e "~/bin/" ] || mkdir "~/bin/"
+	[ -e "~/bin/" ] || mkdir -p ~/bin/
 
 clean:
 	rm ./* -rf
@@ -102,3 +102,7 @@ stackless:
 	bunzip2 stackless.tar.bz2
 	tar xf stackless.tar
 	cd stackless-272-export/ && ./configure --prefix=/opt/stackless --enable-unicode=ucs4 && make && make install
+
+q-text: usr-bin
+	git clone https://github.com/harelba/q.git
+	cp q/bin/q ~/bin/
