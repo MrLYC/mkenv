@@ -85,8 +85,8 @@ redis:
 	cd redis-2.8.14 && make && cp redis.conf /etc/
 	cd redis-2.8.14/src && cp redis-benchmark redis-cli redis-server /usr/bin/
 
-clr: usr-bin
-	echo printf \"\\ec\" > ~/bin/clr && chmod 777 ~/bin/clr
+clr:
+	echo printf \"\\ec\" > /bin/clr && chmod 777 /bin/clr
 
 hide-sysui:
 	sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_DEFAULT="text"/g' /etc/default/grub
