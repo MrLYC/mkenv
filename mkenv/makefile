@@ -110,3 +110,9 @@ q-text: usr-bin
 lxml: python
 	$(sys_install) libxml2-dev libxslt1-dev
 	$(pip) lxml
+
+cheat: python
+	sudo pip install docopt pygments
+	[ -e "cheat" ] || git clone https://github.com/chrisallenlane/cheat.git
+	cd cheat && python setup.py install
+	cheat -v
