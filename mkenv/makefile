@@ -124,3 +124,7 @@ pptpd:
 	$(eval ethn ?= eth0)
 	iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o ethn -j MASQUERADE
 	echo "selected $(ethn)"
+
+profile:
+	cp ./lyc_profile.sh /etc/profile.d/
+	chmod 777 /etc/profile.d/lyc_profile.sh
