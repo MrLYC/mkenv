@@ -116,3 +116,9 @@ cheat: python
 	[ -e "cheat" ] || git clone https://github.com/chrisallenlane/cheat.git
 	cd cheat && python setup.py install
 	cheat -v
+
+pptpd:
+	$(sys_install) pptpd
+	./pptpd_cfg.py
+	service pptpd restart
+	iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth1 -j MASQUERADE
