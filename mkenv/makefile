@@ -27,7 +27,6 @@ apt-update: source-list
 	apt-get update
 
 system: apt-update
-	$(sys_install) npm
 	$(sys_install) lrzsz
 	$(sys_install) vim
 
@@ -43,24 +42,25 @@ git-config:
 	git config --global core.editor vim
 	git config --global merge.tool vimdiff
 	git config --global color.ui true
+	git config --global push.default simple
 
 k-vim: git system
 	[ -e $(k_vim) ] || git clone https://github.com/wklken/k-vim.git $(k_vim)
-	$(sys_install) ctags
-	$(sys_install) build-essential cmake python-dev
+	$(sys_install) build-essential cmake ctags
+	sh -x $(k_vim)/install.sh
 
 python:
 	$(sys_install) python-dev
-	[ -e setuptools.zip ] || wget https://bootstrap.pypa.io/ez_setup.py -O setuptools.zip | python
-	rm setuptools*.zip
+	[ `which pip` ] || [ -e setuptools.zip ] || wget https://bootstrap.pypa.io/ez_setup.py -O setuptools.zip | python
+	rm setuptools*.zip || true
 	easy_install pip
 
 python-dev: python k-vim
 	$(pip) -r requirements-dev.txt
-	sh -x $(k_vim)/install.sh
 
 javascript-dev: k-vim
 	$(sys_install) nodejs
+	$(sys_install) npm
 	npm install -g jslint
 	npm install jshint -g
 

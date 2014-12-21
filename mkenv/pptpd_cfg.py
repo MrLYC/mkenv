@@ -26,6 +26,9 @@ with open("/etc/ppp/pptpd-options", "rt+") as fp:
     if not re.search(r"^ms-dns\s", txt, re.M):
         print("set ms-dns: 114.114.114.114")
         fp.write("\nms-dns 114.114.114.114\n")
+    if not re.search(r"^logfile\s", txt, re.M):
+        print("change logfile to /var/log/ppp.log")
+        fp.write("\nlogfile /var/log/ppp.log\n")
 
 with open("/etc/sysctl.conf", "rt+") as fp:
     txt = fp.read()
