@@ -128,3 +128,9 @@ pptpd:
 profile:
 	cp ./lyc_profile.sh /etc/profile.d/
 	chmod 777 /etc/profile.d/lyc_profile.sh
+
+rsync:
+	wget http://rsync.samba.org/ftp/rsync/src/rsync-3.0.9.tar.gz
+	tar xf rsync-3.0.9.tar.gz
+	cd rsync-3.0.9
+	./configure && make && make install
