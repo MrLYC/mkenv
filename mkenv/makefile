@@ -134,3 +134,8 @@ rsync:
 	tar xf rsync-3.0.9.tar.gz
 	cd rsync-3.0.9
 	./configure && make && make install
+
+synctime:
+	ntpdate cn.pool.ntp.org
+	cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+	hwclock --systohc
