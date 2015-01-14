@@ -122,7 +122,7 @@ pptpd:
 	./pptpd_cfg.py
 	service pptpd restart
 	$(eval ethn ?= eth0)
-	iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o ethn -j MASQUERADE
+	iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o $(ethn) -j MASQUERADE
 	echo "selected $(ethn)"
 
 profile:
