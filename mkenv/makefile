@@ -51,7 +51,7 @@ k-vim: git system
 
 python:
 	$(sys_install) python-dev
-	[ `which pip` ] || [ -e setuptools.zip ] || wget https://bootstrap.pypa.io/ez_setup.py -O setuptools.zip | python
+	[ `which pip` ] || [ -e setuptools.py ] || wget https://bootstrap.pypa.io/ez_setup.py -O setuptools.py | python
 	rm setuptools*.zip || true
 	easy_install pip
 
