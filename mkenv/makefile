@@ -1,6 +1,7 @@
 sys_install = apt-get -y install
 pip = pip install -i http://pypi.douban.com/simple
 k_vim = /opt/k-vim
+gitconf = git config --global
 
 about:
 	@echo "LYC"
@@ -37,12 +38,12 @@ git-flow:
 	$(sys_install) git-flow
 
 git-config:
-	git config --global user.name lyc
-	git config --global user.email saber000@vip.qq.com
-	git config --global core.editor vim
-	git config --global merge.tool vimdiff
-	git config --global color.ui true
-	git config --global push.default simple
+	$(gitconf) user.name lyc
+	$(gitconf) user.email saber000@vip.qq.com
+	$(gitconf) core.editor vim
+	$(gitconf) merge.tool vimdiff
+	$(gitconf) color.ui true
+	$(gitconf) push.default simple
 
 k-vim: git system
 	[ -e $(k_vim) ] || git clone https://github.com/wklken/k-vim.git $(k_vim)
