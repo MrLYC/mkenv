@@ -140,3 +140,17 @@ synctime:
 	ntpdate cn.pool.ntp.org
 	cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 	hwclock --systohc
+
+git-alias:
+	$(gitconf) alias.co 'checkout'
+	$(gitconf) alias.br 'branch'
+	$(gitconf) alias.cm 'commit -m'
+	$(gitconf) alias.st 'status'
+	$(gitconf) alias.last 'log -1 HEAD'
+	$(gitconf) alias.rpo 'pull --rebase origin'
+	$(gitconf) alias.rp 'pull --rebase'
+	$(gitconf) alias.po 'push origin'
+	$(gitconf) alias.hist 'log --pretty=format:"%h | %ad | %an: %s%d" --graph --date=short'
+	$(gitconf) alias.diffh 'diff HEAD'
+	$(gitconf) alias.cbr 'checkout -b'
+	$(gitconf) alias.amend 'commit --amend'
