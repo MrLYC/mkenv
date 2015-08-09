@@ -110,6 +110,7 @@ q-text: usr-bin
 
 lxml: python
 	$(sys_install) libxml2-dev libxslt1-dev
+	apt-get build-dep python-lxml
 	$(pip) lxml
 
 cheat: python
