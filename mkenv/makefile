@@ -155,3 +155,6 @@ git-alias:
 	$(gitconf) alias.diffh 'diff HEAD'
 	$(gitconf) alias.cbr 'checkout -b'
 	$(gitconf) alias.amend 'commit --amend'
+
+docker:
+	curl -sSL https://get.docker.com/ | sh
