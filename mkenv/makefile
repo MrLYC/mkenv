@@ -158,3 +158,6 @@ git-alias:
 
 docker:
 	curl -sSL https://get.docker.com/ | sh
+
+heroku-toolbelt:
+	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
