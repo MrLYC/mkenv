@@ -161,3 +161,17 @@ git-alias:
 
 docker:
 	curl -sSL https://get.docker.com/ | sh
+
+puppet:
+	wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+	dpkg -i puppetlabs-release-precise.deb
+	apt-get update
+	
+puppet-master: puppet
+	apt-get install puppetmaster-passenger
+	puppet resource package puppet ensure=latest
+	
+puppet-agent: puppet
+	apt-get install puppet
+	puppet resource package puppet ensure=latest
+	/etc/init.d/puppet start
