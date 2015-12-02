@@ -117,7 +117,7 @@ lxml: python
 	$(pip) lxml
 
 cheat: python
-	sudo pip install docopt pygments
+	pip install docopt pygments
 	[ -e "cheat" ] || git clone https://github.com/chrisallenlane/cheat.git
 	cd cheat && python setup.py install
 	cheat -v
@@ -168,10 +168,10 @@ puppet:
 	apt-get update
 	
 puppet-master: puppet
-	apt-get install puppetmaster-passenger
+	$(sys_install) puppetmaster-passenger
 	puppet resource package puppet ensure=latest
 	
 puppet-agent: puppet
-	apt-get install puppet
+	$(sys_install) puppet
 	puppet resource package puppet ensure=latest
 	/etc/init.d/puppet start
