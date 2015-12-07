@@ -59,6 +59,9 @@ python:
 python-dev: python k-vim
 	$(pip) -r requirements-dev.txt
 
+python3-dev:
+	$(sys_install) python3-dev python3-pip
+
 javascript-dev: k-vim
 	$(sys_install) nodejs
 	$(sys_install) npm
