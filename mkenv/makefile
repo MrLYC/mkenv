@@ -38,8 +38,8 @@ git-flow:
 	$(sys_install) git-flow
 
 git-config:
-	$(gitconf) user.name lyc
-	$(gitconf) user.email saber000@vip.qq.com
+	$(gitconf) user.name MrLYC
+	$(gitconf) user.email imyikong@gmail.com
 	$(gitconf) core.editor vim
 	$(gitconf) merge.tool vimdiff
 	$(gitconf) color.ui true
