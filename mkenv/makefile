@@ -178,3 +178,8 @@ puppet-agent: puppet
 	$(sys_install) puppet
 	puppet resource package puppet ensure=latest
 	/etc/init.d/puppet start
+
+libvirt-python:
+	$(sys_install) libvirt-dev pkg-config
+	$(pip) libvirt-python
+
