@@ -169,11 +169,11 @@ puppet:
 	wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 	dpkg -i puppetlabs-release-precise.deb
 	apt-get update
-	
+
 puppet-master: puppet
 	$(sys_install) puppetmaster-passenger
 	puppet resource package puppet ensure=latest
-	
+
 puppet-agent: puppet
 	$(sys_install) puppet
 	puppet resource package puppet ensure=latest
@@ -188,3 +188,7 @@ mono:
 	echo "deb http://download.mono-project.com/repo/debian wheezy main" | tee /etc/apt/sources.list.d/mono-xamarin.list
 	apt-get update
 	$(sys_install) mono-devel mono-complete
+
+.PHONY: vbox-tools
+vbox-tools:
+	$(sys_install) virtualbox-guest-dkms
