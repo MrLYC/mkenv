@@ -56,13 +56,13 @@ python:
 	rm setuptools*.zip || true
 	easy_install pip
 
-python-dev: python k-vim
+python-dev: python
 	$(pip) -r requirements-dev.txt
 
 python3-dev:
 	$(sys_install) python3-dev python3-pip
 
-javascript-dev: k-vim
+javascript-dev:
 	$(sys_install) nodejs
 	$(sys_install) npm
 	npm install -g jslint
