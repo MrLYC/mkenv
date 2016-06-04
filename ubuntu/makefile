@@ -192,3 +192,7 @@ mono:
 .PHONY: vbox-tools
 vbox-tools:
 	$(sys_install) virtualbox-guest-dkms
+
+.PHONY: lamp
+lamp:
+	$(sys_install) lamp-server^
