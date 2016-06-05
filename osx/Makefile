@@ -1,5 +1,5 @@
 sys_install = brew install
-pip = pip install -i http://pypi.douban.com/simple
+pip_install = pip install -i http://pypi.douban.com/simple
 
 .PHONY: about
 about:
@@ -12,7 +12,7 @@ homebrew:
 .PHONY: pyaudio
 pyaudio:
 	$(sys_install) portaudio
-	$(pip) pyaudio
+	$(pip_install) pyaudio
 
 .PHONY: crontab
 crontab:
@@ -27,3 +27,8 @@ crontab:
 .PHONY: app
 app:
 	cp -n app /usr/sbin/app
+
+.PHONY: mysql-python
+mysql-python:
+	$(sys_install) mysql-connector-c
+	$(pip_install) mysql-python
