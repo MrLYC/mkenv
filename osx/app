@@ -1,0 +1,53 @@
+#!/bin/bash
+
+function call_app() {
+    app_path="$1/$2.app"
+    echo "open ${app_path}"
+    open "${app_path}"
+}
+
+function list_app() {
+    index=0
+    for app_path in $1/*.app
+    do
+        app_name="${app_path##*/}"
+        app="${app_name%%.app}"
+        if [[ ! "${app}" = "" ]]
+        then
+            index=`expr ${index} + 1`
+            echo ":${index} ${app}"
+        fi
+    done
+}
+
+function call_by_index() {
+    target=${2##:}
+    index=0
+    for app_path in $1/*.app
+    do
+        app_name="${app_path##*/}"
+        app="${app_name%%.app}"
+        if [[ ! "${app}" = "" ]]
+        then
+            index=`expr ${index} + 1`
+            if [[ "${index}" = "${target}" ]]
+            then
+                call_app "$1" "${app}"
+                return
+            fi
+        fi
+    done
+}
+
+path="/Applications"
+
+if [[ "$1" = "" ]]
+then
+    list_app "${path}"
+elif [[ "${1:0:1}" = ":" ]]
+then
+    echo "call by index"
+    call_by_index "${path}" "$1"
+else
+    call_app "${path}" "$1"
+fi

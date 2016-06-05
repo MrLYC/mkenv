@@ -23,3 +23,7 @@ crontab:
 	echo "    set nobackup" >> ~/.vimrc
 	echo "    set nowritebackup" >> ~/.vimrc
 	echo "endif" >> ~/.vimrc
+
+.PHONY: app
+app:
+	cp -n app /usr/sbin/app
