@@ -41,7 +41,7 @@ source_list_set = {
     "ali": list_ali,
     "163": list_163,}
 
-list_name = "163"
+list_name = "ali"
 
 if sys.argv[1:]:
     list_name = sys.argv[1]
