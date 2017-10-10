@@ -161,6 +161,7 @@ git-alias:
 	$(gitconf) alias.diffh 'diff HEAD'
 	$(gitconf) alias.cbr 'checkout -b'
 	$(gitconf) alias.amend 'commit --amend'
+	$(gitconf) alias.delbr '!git branch -d $2 && git push $1 :$2'
 
 docker:
 	curl -sSL https://get.docker.com/ | sh
